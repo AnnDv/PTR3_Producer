@@ -31,7 +31,9 @@ class Connector(TCPProducer: ActorRef) extends Actor{
         // access to tweets1. For each event it generates unique ID and sends events together with event data
         val eventSource: Future[Done] =
             EventSource(
-            uri = Uri(s"http://localhost:4000/tweets/1"),
+            // uri = Uri(s"http://localhost:4000/tweets/1"),
+            // for docker
+            uri = Uri(s"http://rtpserver:4000/tweets/1"),
             send,
             ).runForeach(event=>{
                     
@@ -45,7 +47,9 @@ class Connector(TCPProducer: ActorRef) extends Actor{
         // access to tweets2. For each event it generates unique ID and sends events together with event data
         val eventSource2: Future[Done] =
             EventSource(
-            uri = Uri(s"http://localhost:4000/tweets/2"),
+            // uri = Uri(s"http://rtpserver:4000/tweets/2"),
+            // for docker
+            uri = Uri(s"http://rtpserver:4000/tweets/2"),
             send,
             ).runForeach(event=>{
                     

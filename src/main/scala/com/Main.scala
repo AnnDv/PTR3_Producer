@@ -8,7 +8,9 @@ object Main {
     println("Starrt")
     // creates actor system
     val system = ActorSystem("main")
-    val host = "localhost"
+    // val host = "localhost"
+    // docker
+    val host = "server"
     val port = 8080
     // create tcp actor tells actor to start connection
     val tcpActor = system.actorOf(TCPProducer.props(host, port), "TCPProducer")

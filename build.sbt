@@ -1,4 +1,4 @@
-name := "akka-quickstart-scala"
+name := "producer-scala-producer"
 
 version := "1.0"
 
@@ -11,6 +11,8 @@ lazy val akkaVersion = "2.6.19"
 // If you want to keep the application running while executing other
 // sbt tasks, consider https://github.com/spray/sbt-revolver/
 fork := true
+
+enablePlugins(JavaAppPackaging)
 
 libraryDependencies ++= Seq(
   "com.lightbend.akka" %% "akka-stream-alpakka-sse" % "2.0.2",
